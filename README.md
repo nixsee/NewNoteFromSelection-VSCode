@@ -10,93 +10,92 @@ Creates a new markdown file with selected text and replaces original text with l
     - MacOS $HOME/Library/Application Support/Code/User/settings.json
     - Linux $HOME/.config/Code/User/settings.json
 1. Add the following code to the bottom of the file: 
-```
-"macros.list": {
-        "updateNote": [
-            {
-                "command": "$delay",
-                "args": {
-                    "delay": 500
-                }
-            },
-            "workbench.action.files.save",
-            "editor.action.insertLineAfter",
-            "editor.action.insertLineAfter",
-            "editor.action.clipboardPasteAction",
-            "cursorTop",
-            "fileutils.copyFileName",
-            "editor.action.clipboardPasteAction",
-            "deleteLeft",
-            "deleteLeft",
-            "deleteLeft", 
-            "cursorHomeSelect",
-            "editor.action.clipboardCopyAction",
-            "cursorTop",
-            {"command": "type", "args": {"text": "# " }},
-            "workbench.action.navigateBack",
-            "deleteRight",
-            {"command": "type", "args": {"text": "[[" }},
-            "editor.action.clipboardPasteAction",             
-        ],
-       
-        "copySelection": [
-            "editor.action.clipboardCopyAction"
-        ],         
-    },
-```
+    ```
+    "macros.list": {
+            "updateNote": [
+                {
+                    "command": "$delay",
+                    "args": {
+                        "delay": 500
+                    }
+                },
+                "workbench.action.files.save",
+                "editor.action.insertLineAfter",
+                "editor.action.insertLineAfter",
+                "editor.action.clipboardPasteAction",
+                "cursorTop",
+                "fileutils.copyFileName",
+                "editor.action.clipboardPasteAction",
+                "deleteLeft",
+                "deleteLeft",
+                "deleteLeft", 
+                "cursorHomeSelect",
+                "editor.action.clipboardCopyAction",
+                "cursorTop",
+                {"command": "type", "args": {"text": "# " }},
+                "workbench.action.navigateBack",
+                "deleteRight",
+                {"command": "type", "args": {"text": "[[" }},
+                "editor.action.clipboardPasteAction",             
+            ],
+
+            "copySelection": [
+                "editor.action.clipboardCopyAction"
+            ],         
+        },
+    ```
 1. Open the user tasks file by entering Ctrl+Shift+P -> "Tasks: Open User Tasks". This file can also be found (or created) at the same user settings folder paths mentioned in step 3. 
 1. Insert the following code into the file. If you don't have any existing tasks, you can replace the entire code. 
-```
-{
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "newNote",
-        "type": "shell",
-        "command": "echo '' > ${input:fileName}.md | code '${input:fileName}.md'", 
-      },
-      {
-        "label": "copyText",
-        "type": "shell",
-        "command": "${command:macros.copySelection}"     
-      },
-      {
-        "label": "newNoteFromSelection",
-        "type": "shell",
-        "command": "${command:macros.updateNote}",
-        "dependsOrder": "sequence",
-        "dependsOn": ["copyText", "newNote"]
+    ```
+    {
+        "version": "2.0.0",
+        "tasks": [
+          {
+            "label": "newNote",
+            "type": "shell",
+            "command": "echo '' > ${input:fileName}.md | code '${input:fileName}.md'", 
+          },
+          {
+            "label": "copyText",
+            "type": "shell",
+            "command": "${command:macros.copySelection}"     
+          },
+          {
+            "label": "newNoteFromSelection",
+            "type": "shell",
+            "command": "${command:macros.updateNote}",
+            "dependsOrder": "sequence",
+            "dependsOn": ["copyText", "newNote"]
+          }
+        ],
+
+        "inputs": [
+          /* {
+            "type": "promptString",     
+            "id": "folderName",
+            "description": "Complete my folder name.",
+            "default": "folder"
+          }, */
+          {
+            "type": "promptString",
+            "id": "fileName",
+            "description": "Complete my file name.",
+            "default": "new file name",
+          }
+        ]
       }
-    ],
-  
-    "inputs": [
-      /* {
-        "type": "promptString",     
-        "id": "folderName",
-        "description": "Complete my folder name.",
-        "default": "folder"
-      }, */
-      {
-        "type": "promptString",
-        "id": "fileName",
-        "description": "Complete my file name.",
-        "default": "new file name",
-      }
-    ]
-  }
-```
+    ```
 
 1. Open the user Keybindings file, by either entering Ctrl+Shift+P -> "Preferences: Open Keyboard Shortcuts (JSON) or opening this file from the same directory listed in Step 3.
 1. At the bottom, add the following code and customize the keyboard shortcut to your preference.
-```
-{
-  "key": "ctrl+alt+shift+n",    // whatever you choose
-  "command": "workbench.action.tasks.runTask",
-  "args": "newNoteFromSelection"
-},
-      
-```
+    ```
+    {
+      "key": "ctrl+alt+shift+n",    // whatever you choose
+      "command": "workbench.action.tasks.runTask",
+      "args": "newNoteFromSelection"
+    },
 
+    ```
 1. Open the markdown file with the text that you would like to extract. 
 1. Select text.
 1. Use the keyboard shortcut that you just set. 
