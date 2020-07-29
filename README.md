@@ -106,7 +106,9 @@ Creates a new markdown file with selected text and replaces original text with l
 
     Pros of using "-":
     - You wont end up with a "dummy" file with the first entered word as a name (no idea why...) e.g. "new file name" will create a dummy "new.noextension" and "new file name.md". See image below for example:
+    
     ![](dummyfile.png)
+    
     - It *might* help with linking
     
     Cons of using "-":
