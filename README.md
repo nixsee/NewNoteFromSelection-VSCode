@@ -3,7 +3,8 @@ Creates a new markdown file with selected text and replaces original text with l
 
 ![](Selection2Note.gif)
 
-1. Need to install [Macros](https://marketplace.visualstudio.com/items?itemName=geddski.macros) extension
+1. Install [Macros](https://marketplace.visualstudio.com/items?itemName=geddski.macros) extension
+1. Install [FileUtils](https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils) extension
 1. Open your User settings by pressing Ctrl+Shift+P and tpying "Open Settings (JSON)" or locating settings.json at the following paths
     - Windows %APPDATA%\Code\User\settings.json
     - MacOS $HOME/Library/Application Support/Code/User/settings.json
@@ -43,7 +44,7 @@ Creates a new markdown file with selected text and replaces original text with l
         ],         
     },
 ```
-1. Open the user tasks file by entering Ctrl+Shift+P -> "Tasks: Open User Tasks". This file can also be found (or created) at the same user settings folder paths mentioned in step 2. 
+1. Open the user tasks file by entering Ctrl+Shift+P -> "Tasks: Open User Tasks". This file can also be found (or created) at the same user settings folder paths mentioned in step 3. 
 1. Insert the following code into the file. If you don't have any existing tasks, you can replace the entire code. 
 ```
 {
@@ -85,7 +86,7 @@ Creates a new markdown file with selected text and replaces original text with l
   }
 ```
 
-1. Open the user Keybindings file, by either entering Ctrl+Shift+P -> "Preferences: Open Keyboard Shortcuts (JSON) or opening this file from the same directory listed in Step 2.
+1. Open the user Keybindings file, by either entering Ctrl+Shift+P -> "Preferences: Open Keyboard Shortcuts (JSON) or opening this file from the same directory listed in Step 3.
 1. At the bottom, add the following code and customize the keyboard shortcut to your preference.
 ```
 {
