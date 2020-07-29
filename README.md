@@ -105,11 +105,13 @@ Creates a new markdown file with selected text and replaces original text with l
 1. Enter a title in the Input Box. If it has multiple words in it, you might consider adding "-" between each word in case it helps with links. 
 
     Pros of using "-":
-    - You wont end up with a "dummy" (unsaved) file with the first entered word as a name (no idea why...)
+    - You wont end up with a "dummy" file with the first entered word as a name (no idea why...) e.g. "Test File" will create a dummy "Test.noextension" and "Test File.md". See GIF below for example of dummy file.
     - It *might* help with linking
     
     Cons of using "-":
     - Your links and graph node labels will have "-" in them
+    
+    ![](dummyfile.gif)
     
     *** This would also be a very good place for someone to improve the code with some sort of Regex find/replace for "-","_", etc... ***
 1. Wait for macro to run. It should take a few seconds.
