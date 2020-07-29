@@ -48,7 +48,7 @@ Creates a new markdown file with selected text and replaces original text with l
         },
     ```
 1. Open the user tasks file by entering Ctrl+Shift+P -> "Tasks: Open User Tasks". This file can also be found (or created) at the same user settings folder paths mentioned in step 3. 
-1. Insert the following code into the file. If you don't have any existing tasks, you can replace the entire code. 
+1. Insert the following code into the file. If you don't have any existing tasks, you can replace the entire code. **NOTE: This is set to use Windows Powershell. You might have to modify the code, especially in the "newNote" section, if you are using a different system**
     ```
     {
         "version": "2.0.0",
