@@ -100,9 +100,11 @@ Creates a new markdown file with selected text and replaces original text with l
 1. Select text.
 1. Use the keyboard shortcut that you just set. 
 1. Enter a title in the Input Box. If it has multiple words in it, you might consider adding "-" between each word in case it helps with links. 
+
     Pros of using "-":
     - You wont end up with a "dummy" (unsaved) file with the first entered word as a name (no idea why...)
     - It *might* help with linking
+    
     Cons of using "-":
     - Your links and graph node labels will have "-" in them
 1. Wait for macro to run. It should take a few seconds.
