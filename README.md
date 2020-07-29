@@ -5,6 +5,9 @@ Creates a new markdown file with selected text and replaces original text with l
 
 1. Install [Macros](https://marketplace.visualstudio.com/items?itemName=geddski.macros) extension
 1. Install [FileUtils](https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils) extension
+
+    Note: They're pretty useful tools to have, so its not a complete "waste" to install them just for this task.
+
 1. Open your User settings by pressing Ctrl+Shift+P and tpying "Open Settings (JSON)" or locating settings.json at the following paths
     - Windows %APPDATA%\Code\User\settings.json
     - MacOS $HOME/Library/Application Support/Code/User/settings.json
