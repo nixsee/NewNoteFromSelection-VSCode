@@ -108,4 +108,3 @@ Creates a new markdown file with selected text and replaces original text with l
     
 1. Wait for macro to run. It should take a few seconds.
 1. If you are unsatisfied with the results, you can undo it all by pressing Ctrl+Z. 
-1. If you left spaces in the file names, delete the "dummy" files from your file tree when done processing all selections.
