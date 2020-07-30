@@ -15,6 +15,7 @@ Creates a new markdown file with selected text and replaces original text with l
 1. Add the following code to the bottom of the file: 
     ```
     "macros.list": {
+            //if you are having trouble with the formatting, you can make this delay slower (1000 is 1 second). Just depends on the speed/load of your processor.
             "updateNote": [
                 {
                     "command": "$delay",
@@ -108,3 +109,4 @@ Creates a new markdown file with selected text and replaces original text with l
     
 1. Wait for macro to run. It should take a few seconds.
 1. If you are unsatisfied with the results, you can undo it all by pressing Ctrl+Z. 
+1. If the formatting is all out of order, look in the settings.json file and increase the delay.
