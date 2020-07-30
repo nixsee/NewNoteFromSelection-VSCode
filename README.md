@@ -56,7 +56,7 @@ Creates a new markdown file with selected text and replaces original text with l
           {
             "label": "newNote",
             "type": "shell",
-            "command": "echo '' > ${input:fileName}.md | code '${input:fileName}.md'", 
+            "command": "echo '' > '${input:fileName}.md' | code '${input:fileName}.md'", 
           },
           {
             "label": "copyText",
@@ -102,21 +102,10 @@ Creates a new markdown file with selected text and replaces original text with l
 1. Open the markdown file with the text that you would like to extract. 
 1. Select text.
 1. Use the keyboard shortcut that you just set. 
-1. Enter a title in the Input Box. If it has multiple words in it, you might consider adding "-" between each word in case it helps with links. 
-
-    Pros of using "-":
-    - You wont end up with a "dummy" file with the first entered word as a name (no idea why...) e.g. "new file name" will create a dummy "new.noextension" and "new file name.md". See image below for example:
-    
-    ![](dummyfile.png)
-    
-    - It *might* help with linking
-    
-    Cons of using "-":
-    - Your links and graph node labels will have "-" in them
-    
-    
+1. Enter a title in the Input Box. If it has multiple words in it, you might consider adding "-" between each word in case it helps with links. However your links and graph node labels will have "-" in them.    
     
     *** This would also be a very good place for someone to improve the code with some sort of Regex find/replace for "-","_", etc... ***
+    
 1. Wait for macro to run. It should take a few seconds.
 1. If you are unsatisfied with the results, you can undo it all by pressing Ctrl+Z. 
 1. If you left spaces in the file names, delete the "dummy" files from your file tree when done processing all selections.
