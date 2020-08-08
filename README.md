@@ -17,6 +17,7 @@ Creates a new markdown file with selected text and replaces original text with l
     "macros.list": {
             //if you are having trouble with the formatting, you can make this delay slower (1000 is 1 second). Just depends on the speed/load of your processor.
             "updateNote": [
+                //if you are having trouble with the formatting, you can make this delay slower (1000 is 1 second)
                 {
                     "command": "$delay",
                     "args": {
@@ -37,10 +38,12 @@ Creates a new markdown file with selected text and replaces original text with l
                 "editor.action.clipboardCopyAction",
                 "cursorTop",
                 {"command": "type", "args": {"text": "# " }},
-                "workbench.action.navigateBack",
+                "workbench.action.files.save",
+                "workbench.action.closeActiveEditor",
+                //"workbench.action.navigateBack",
                 "deleteRight",
-                {"command": "type", "args": {"text": "[[" }},
-                "editor.action.clipboardPasteAction",             
+                {"command": "type", "args": {"text": "- [[" }},
+                "editor.action.clipboardPasteAction",                 
             ],
 
             "copySelection": [
@@ -51,25 +54,37 @@ Creates a new markdown file with selected text and replaces original text with l
 1. Open the user tasks file by entering Ctrl+Shift+P -> "Tasks: Open User Tasks". This file can also be found (or created) at the same user settings folder paths mentioned in step 3. 
 1. Insert the following code into the file. If you don't have any existing tasks, you can replace the entire code. **NOTE: This is set to use Windows Powershell. You might have to modify the code, especially in the "newNote" section, if you are using a different system**
     ```
-    {
+        {
         "version": "2.0.0",
         "tasks": [
           {
             "label": "newNote",
             "type": "shell",
-            "command": "echo '' > '${input:fileName}.md' | code '${input:fileName}.md'", 
+            "command": "echo '' > -encoding UTF8 '${input:fileName}.md' | code '${input:fileName}.md'", 
+            "presentation": {
+              "reveal": "silent",
+              "clear": true,
+            },
           },
           {
             "label": "copyText",
             "type": "shell",
-            "command": "${command:macros.copySelection}"     
+            "command": "${command:macros.copySelection}",  
+            "presentation": {
+              "reveal": "silent",
+              "clear": true,
+            }, 
           },
           {
             "label": "newNoteFromSelection",
             "type": "shell",
             "command": "${command:macros.updateNote}",
             "dependsOrder": "sequence",
-            "dependsOn": ["copyText", "newNote"]
+            "dependsOn": ["copyText","newNote"]
+            "presentation": {
+              "reveal": "silent",
+              "clear": true,
+            },
           }
         ],
 
@@ -83,8 +98,12 @@ Creates a new markdown file with selected text and replaces original text with l
           {
             "type": "promptString",
             "id": "fileName",
-            "description": "Complete my file name.",
+            "description": "New file name for selected texte",
             "default": "new file name",
+            "presentation": {
+              "reveal": "silent",
+              "clear": true,
+            },
           }
         ]
       }
